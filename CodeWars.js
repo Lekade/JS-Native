@@ -930,6 +930,75 @@
 // console.log(toCamelCase("A-B-C"))
 
 
+// function narcissistic(value) {
+//     const valueArr = value.toString().split('')
+//     const result =  valueArr.reduce((acc, curr) => {
+//         acc += (+curr)**valueArr.length
+//         return acc
+//     }, 0)
+//     return result === value
+// }
+//
+// console.log(narcissistic(7))// true
+// console.log(narcissistic(153))//true
+// console.log(narcissistic(122))//false
+// console.log(narcissistic(487))//false
+
+
+// function order(words){
+//     const result = []
+//     words.split(' ').forEach((w, ind, arr)=> w.split('').forEach(s =>  {
+//         if(+s % 1 === 0){result[+s - 1] = w}
+//     }))
+//     return result.join(' ')
+// }
+// console.log(order("is2 Thi1s T4est 3a"))//"Thi1s is2 3a T4est"
+// console.log(order("4of Fo1r pe6ople g3ood th5e the2"))//"Fo1r the2 g3ood 4of th5e pe6ople"
+// console.log(order(""))//""
+
+
+// function tribonacci(signature,n){
+//     if (n === 0) return []
+//     if(n === 1) return [signature[0]]
+//     if(n === 2) return [signature[0], signature[1]]
+//     for (let i = 3; signature.length < n; i++){
+//         signature[i] = signature[i - 1] + signature[i - 2] + signature[i - 3]
+//     }
+//     return  signature
+// }
+// console.log(tribonacci([1,1,1], 10))// [1,1,1,3,5,9,17,31,57,105]
+// console.log(tribonacci([0,0,1], 10))// [0,0,1,1,2,4,7,13,24,44]
+// console.log(tribonacci([0,1,1], 10))// [0,1,1,2,4,7,13,24,44,81]
+// console.log(tribonacci([1,0,0], 10))// [1,0,0,1,1,2,4,7,13,24]
+// console.log(tribonacci([0,0,0], 10))// [0,0,0,0,0,0,0,0,0,0]
+// console.log(tribonacci([1,2,3], 10))// [1,2,3,6,11,20,37,68,125,230]
+// console.log(tribonacci([1,1,1],  2))// [1]
+// console.log(tribonacci([300,200,100], 0))// []
+
+
+// const uniqueInOrder = function(iterable){
+//     if(!iterable){return []}
+//     const result = [iterable[0]]
+//     const arr = typeof iterable === 'string'? iterable.split('') : iterable
+//     arr.forEach((i) => {
+//         if(result[result.length - 1] !== i){
+//             result.push(i)
+//         }
+//     })
+//     return result
+// }
+// console.log(uniqueInOrder('AAAABBBCCDAABBB'))
+// console.log(uniqueInOrder([1,2,2,3,3]))
+// console.log(uniqueInOrder(undefined))
+
+
+// function isPangram(string){
+//     const map = [...new Set(string.toLowerCase().split(''))].filter(s => s && s.charCodeAt() >= 97 && s.charCodeAt() <= 122)
+//     return map.length === 26
+// }
+// console.log(isPangram("The quick brown fox jumps over the lazy dog."))
+// console.log(isPangram("This is not a pangram."))
+
 
 
 
