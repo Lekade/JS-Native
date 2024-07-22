@@ -1000,8 +1000,75 @@
 // console.log(isPangram("This is not a pangram."))
 
 
+// decodeMorse = function(morseCode){
+//     const arrWords = morseCode.trim().split('   ')
+//     return  arrWords.map(w => w.split(' ')).map(w => w.map(s => MORSE_CODE[s]).join('')).join(' ')
+// }
+//
+// console.log(decodeMorse('.... . -.--   .--- ..- -.. .'))
+// console.log(decodeMorse('   .... . -.--   '))
 
 
+// function digPow(n, p){
+//     let stringN = n.toString()
+//     let number = 0
+//     for(let i = 0; i + 1 <= stringN.length; i++ ){
+//         number += (+(stringN[i]))**(p + i)
+//     }
+//     return number % n ? -1 :  number / n
+// }
+// console.log(digPow(89, 1))
+// console.log(digPow(92, 1))
+// console.log(digPow(46288, 3))
 
 
+// function findEvenIndex(arr){
+//     let result = -1
+//     for(let i = 0; i<=arr.length; i++){
+//         const startArr = arr.slice(0, i)
+//         const endArr = arr.slice(i + 1, arr.length)
+//         if(startArr.reduce((a, b) => a + b, 0) === endArr.reduce((a, b) => a + b, 0)){
+//             result = i
+//             break
+//         }
+//     }
+//     return result
+// }
+// console.log(findEvenIndex([1,2,3,4,3,2,1]))//3
+// console.log(findEvenIndex([1,100,50,-51,1,1]))//1
+// console.log(findEvenIndex([1,2,3,4,5,6]))//-1
+// console.log(findEvenIndex([20,10,30,10,10,15,35]))//3
+// console.log(findEvenIndex([0,0,0,0,0]))//3
 
+
+// function pigIt(str){
+//     const wordsArr = str.split(' ')
+//     return  wordsArr.map(w => w.toLowerCase().charCodeAt() >= 97 && w.toLowerCase().charCodeAt() <= 122 ? w.slice(1, w.length) + w.slice(0,1) + 'ay': w).join(' ')
+// }
+// function pigIt(str){
+//     const wordsArr = str.split(' ')
+//     return  wordsArr.map(w => console.log(w[0].charAt())).join(' ')
+// }
+// console.log(pigIt('Pig latin is cool'))//'igPay atinlay siay oolcay'
+// console.log(pigIt('This is my string'))//'hisTay siay ymay tringsay'
+// console.log(pigIt('Hello world !'))// elloHay orldway !
+
+
+// function sortArray(array) {
+//     const odd = array.filter(n => n % 2 !== 0).sort((a, b) => a - b)
+//     let ind = 0
+//     return array.reduce((acc, curr) => {
+//         if (curr % 2){
+//             acc.push(odd[ind])
+//             ind++
+//         }else {
+//             acc.push(curr)
+//         }
+//         return acc
+//     },[])
+// }
+// console.log(sortArray([5, 3, 2, 8, 1, 4]))//[1, 3, 2, 8, 5, 4]
+// console.log(sortArray([5, 3, 1, 8, 0]))//[1, 3, 5, 8, 0]
+// console.log(sortArray([]))//[]
+// console.log(sortArray([ 1, 11, 2, 8, 3, 4, 5 ]))//[ 1, 3, 2, 8, 5, 4, 11 ]
+// console.log(sortArray([ -29, -41, 1, -46, 33 ]))//[ -41, -29, 1, -46, 33 ]
