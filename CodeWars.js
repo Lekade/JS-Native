@@ -1072,3 +1072,108 @@
 // console.log(sortArray([]))//[]
 // console.log(sortArray([ 1, 11, 2, 8, 3, 4, 5 ]))//[ 1, 3, 2, 8, 5, 4, 11 ]
 // console.log(sortArray([ -29, -41, 1, -46, 33 ]))//[ -41, -29, 1, -46, 33 ]
+
+
+// function maxRot(n) {
+//     const stringN = n.toString()
+//     const arrN = [stringN]
+//     for(let i = 0; i < stringN.length - 1; i++){
+//             const newStingN = arrN[i].slice(0, i) + arrN[i].slice(i + 1) + arrN[i][i]
+//             arrN.push(newStingN)
+//     }
+//     return  Math.max(...arrN.map(n => Number(n)))
+// }
+// //56789 -> 6 7895 -> 68 957 -> 685 79 -> 6859 (7)
+// // 0         1         2           3         4
+//
+// console.log(maxRot(56789))//68957
+// console.log(maxRot(38458215))//85821534
+// console.log(maxRot(195881031))//988103115
+// console.log(maxRot(896219342))//962193428
+// console.log(maxRot(69418307))//94183076
+
+
+// function findUniq(arr) {
+//     const map = [...new Set(arr)]
+//     const c = {
+//         [0]: 0,
+//         [1]: 0
+//     }
+//     for(let i = 0; i < 3; i++){
+//         arr[i] === map[0]
+//             ? c[0] = c[0] + 1
+//             : c[1] = c[1] + 1
+//     }
+//     return c[0] > c[1] ? map[1] : map[0]
+// }
+// console.log(findUniq([ 1, 0, 0 ]))//1
+// console.log(findUniq([ 0, 1, 0 ]))//1
+// console.log(findUniq([ 0, 0, 1 ]))//1
+// console.log(findUniq([ 1, 1, 1, 2, 1, 1 ]))//2
+// console.log(findUniq([ 1, 1, 2, 1, 1 ]))//2
+// console.log(findUniq([ 3, 10, 3, 3, 3 ]))//10
+
+
+// function moveZeros(arr) {
+//     let zeroCounter = 0
+//     const newArr = arr.filter(i => {
+//         if(i === 0){
+//             zeroCounter++
+//         }
+//         return i !== 0
+//     })
+//     while(newArr.length < arr.length){
+//         newArr.push(0)
+//     }
+//     return newArr
+// }
+// console.log(moveZeros([1,2,0,1,0,1,0,3,0,1]))//[1, 2, 1, 1, 3, 1, 0, 0, 0, 0]
+
+
+// function humanReadable (seconds) {
+//     let hours = Math.floor(seconds / 3600);
+//     let minutes = Math.floor((seconds % 3600) / 60);
+//     let secs = seconds % 60;
+//
+//     hours = String(hours).padStart(2, '0');
+//     minutes = String(minutes).padStart(2, '0');
+//     secs = String(secs).padStart(2, '0');
+//
+//     return `${hours}:${minutes}:${secs}`
+// }
+// console.log(humanReadable(      0))// '00:00:00'
+// console.log(humanReadable(     59))// '00:00:59'
+// console.log(humanReadable(     60))// '00:01:00'
+// console.log(humanReadable(     90))// '00:01:30'
+// console.log(humanReadable(   3599))// '00:59:59'
+// console.log(humanReadable(   3600))// '01:00:00'
+// console.log(humanReadable(  45296))// '12:34:56'
+// console.log(humanReadable(  86399))// '23:59:59'
+// console.log(humanReadable(  86400))// '24:00:00'
+// console.log(humanReadable( 359999))// '99:59:59'
+
+
+// function towerBuilder(nFloors) {
+//     let tower = [];
+//     for (let i = 1; i <= nFloors; i++) {
+//         let stars = '*'.repeat(2 * i - 1);
+//         let spaces = ' '.repeat(nFloors - i);
+//         tower.push(spaces + stars + spaces);
+//     }
+//     return tower;
+// }
+//
+// console.log(towerBuilder(1))// ["*"]);
+// console.log(towerBuilder(2))// [" * ","***"]);
+// console.log(towerBuilder(3))// ["  *  "," *** ","*****"]
+
+// // 1-1 2-3 3-5 4-7 5-9 6-11 (2 * n - 1)
+// //
+// // [
+// //   "     *     ",
+// //   "    ***    ",
+// //   "   *****   ",
+// //   "  *******  ",
+// //   " ********* ",
+// //   "***********"
+// // ]
