@@ -177,6 +177,27 @@
 // Функция должна проходить по массиву, применять asyncReducer к каждому элементу, накапливать результат и возвращать его.
 // asyncReducer принимает аккумулятор и текущий элемент и возвращает промис.
 
+// const asyncReducer = async (accPromise, curr) => {
+//     const acc = await accPromise;
+//     const promise = new Promise((res)=>{
+//         setTimeout(()=>{
+//             res(curr)
+//         }, 100)
+//     })
+//     const resolve = await promise;
+//     return acc + resolve;
+// };
+//
+// const reduceAsync = (array, asyncReducer, initialValue) => {
+//     return array.reduce(asyncReducer, Promise.resolve(initialValue));
+// };
+//
+// // Пример использования
+// reduceAsync([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], asyncReducer, 1)
+//     .then(result => {
+//         console.log(result);
+//     })
+//     .catch(console.error);
 
 
 // Задача 10: Каскадная отмена асинхронных операций-------------------------------------
@@ -184,4 +205,40 @@
 //
 // Если одна из задач завершилась ошибкой, все последующие задачи должны быть отменены.
 // Возвращает массив с результатами выполненных задач до момента отмены.
+
+
+// const cascadingAbort = async (tasks) => {
+//     const results = []
+//     for(let i = 0; i < tasks.length; i++){
+//         try {
+//             const result = await tasks[i](i + 1)
+//             results.push(result)
+//         }
+//         catch (error){
+//             console.log(`Task ${i + 1} failed with error: ${error.message}`);
+//             break
+//         }
+//     }
+//     return results
+// }
+//
+// const task = (n) => {
+//     return new Promise((resolve, reject)=>{
+//         let num = Math.floor(Math.random() * 10)
+//         console.log(num)
+//         setTimeout(()=>{
+//             if(num % 2){
+//                 resolve(num)
+//             }
+//             reject(new Error(`Task ${n} failed`))
+//         }, 1000)
+//     })
+// }
+// const tasks = [
+//     task, task, task, task, task, task
+// ]
+//
+// cascadingAbort(tasks)
+//     .then(console.log)
+//     .catch(console.error)
 
