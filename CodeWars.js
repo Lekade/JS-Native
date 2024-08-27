@@ -1166,7 +1166,7 @@
 // console.log(towerBuilder(1))// ["*"]);
 // console.log(towerBuilder(2))// [" * ","***"]);
 // console.log(towerBuilder(3))// ["  *  "," *** ","*****"]
-
+//
 // // 1-1 2-3 3-5 4-7 5-9 6-11 (2 * n - 1)
 // //
 // // [
@@ -1177,3 +1177,109 @@
 // //   " ********* ",
 // //   "***********"
 // // ]
+
+
+// function findMissingLetter(array) {
+//     const alphabet = 'abcdefghijklmnopqrstuvwxyz'
+//     const necessary = alphabet.slice(alphabet.indexOf(array[0].toLowerCase()))
+//     for(let i = 0; i < alphabet.length; i++){
+//         if(array[i].toLowerCase() !== necessary[i]){
+//             if(array[i].toUpperCase() === array[i] ){
+//                 return necessary[i].toUpperCase()
+//             }
+//             return necessary[i]
+//         }
+//     }
+// }
+// console.log(findMissingLetter(['a','b','c','d','f'])) // 'e'
+// console.log(findMissingLetter(['O','Q','R','S'])) // 'P'
+
+
+// snail = function(array) {
+//     let result = []
+//
+//     while (array.length){
+//         result = result.concat(array.shift())
+//
+//         for(let i = 0; i < array.length; i++){
+//             result.push(array[i].pop())
+//         }
+//
+//         if(array.length){
+//             result = result.concat(array.pop().reverse())
+//         }
+//
+//         for(let i = array.length - 1; i >= 0; i--){
+//             result.push(array[i].shift())
+//             console.log(999)
+//         }
+//     }
+//     return result
+// }
+//
+// console.log(snail([[]]))// []
+// console.log(snail([[1]]))// [1]
+// console.log(snail([
+//     [1, 2, 3],
+//     [4, 5, 6],
+//     [7, 8, 9]
+// ])) // [1, 2, 3, 6, 9, 8, 7, 4, 5]
+// console.log(snail([[1, 2, 3, 4, 5], [6, 7, 8, 9, 10], [11, 12, 13, 14, 15], [16, 17, 18, 19, 20], [21, 22, 23, 24, 25]]))
+// // [1, 2, 3, 4, 5, 10, 15, 20, 25, 24, 23, 22, 21, 16, 11, 6, 7, 8, 9, 14, 19, 18, 17, 12, 13]
+// console.log(snail([[1, 2, 3, 4, 5, 6], [20, 21, 22, 23, 24, 7], [19, 32, 33, 34, 25, 8], [18, 31, 36, 35, 26, 9], [17, 30, 29, 28, 27, 10], [16, 15, 14, 13, 12, 11]]))
+// // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36]
+
+// function high(str){
+//     const arrStr = str.split(' ')
+//     const arrCount = []
+//     for(let i = 0; i < arrStr.length; i++){
+//         let count = 0
+//         for(let q = 0; q < arrStr[i].length; q++){
+//             count += arrStr[i][q].charCodeAt() - 96
+//         }
+//         arrCount.push(count)
+//     }
+//
+//     return arrStr[arrCount.indexOf(Math.max(...arrCount))]
+// }
+//
+// console.log(high('man i need a taxi up to ubud'))// 'taxi');
+// console.log(high('what time are we climbing up the volcano'))// 'volcano');
+// console.log(high('take me to semynak'))// 'semynak');
+// console.log(high('aa b'))// 'aa');
+// console.log(high('b aa'))// 'b');
+// console.log(high('bb d'))// 'bb');
+// console.log(high('d bb'))// 'd');
+// console.log(high('aaa b'))// 'aaa');
+
+
+// function deleteNth(arr,n){
+//     let obj = {}
+//     return arr.filter(num => {
+//         if(!obj[num]){
+//             obj[num] = 0
+//         }
+//         obj[num] += 1
+//         return obj[num] <= n
+//     })
+// }
+//
+// console.log(deleteNth([20,37,20,21], 1))// [20,37,21])
+// console.log(deleteNth([1,1,3,3,7,2,2,2,2], 3))// [1, 1, 3, 3, 7, 2, 2, 2])
+// console.log(deleteNth([12,39,19,39,39,19,12], 1))// [12, 39, 19])
+
+
+// function countSmileys(arr) {
+//     const smile = [':)', ':D', ':-)', ':~)', ':-D', ':~D', ';)', ';D', ';-)', ';~)', ';-D', ';~D']
+//     return  arr.reduce((acc, cur)=>{
+//         if(smile.indexOf(cur) >= 0){
+//           return ++acc
+//         }
+//         return acc
+//     }, 0)
+// }
+//
+// console.log(countSmileys([]                             ))// 0
+// console.log(countSmileys([':D',':~)',';~D',':)']        ))// 4
+// console.log(countSmileys([':)',':(',':D',':O',':;']     ))// 2
+// console.log(countSmileys([';]', ':[', ';*', ':$', ';-D']))// 1
