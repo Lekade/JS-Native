@@ -1283,3 +1283,113 @@
 // console.log(countSmileys([':D',':~)',';~D',':)']        ))// 4
 // console.log(countSmileys([':)',':(',':D',':O',':;']     ))// 2
 // console.log(countSmileys([';]', ':[', ';*', ':$', ';-D']))// 1
+
+
+// function reverseWords(str) {
+//     if (!str.length) {
+//         return str
+//     }
+//     return str.split(' ').reverse().join(' ')
+// }
+// console.log(reverseWords("hello world!"))//"world! hello"
+// console.log(reverseWords("yoda doesn't speak like this"))//"this like speak doesn't yoda"
+// console.log(reverseWords("foobar"))//"foobar"
+// console.log(reverseWords("kata editor"))//"editor kata"
+// console.log(reverseWords("row row row your boat"))//"boat your row row row"
+// console.log(reverseWords(""))//""
+
+
+// function points(games) {
+//     return games.reduce((acc, carr) => {
+//         const [x, y] = carr.split(":").map(n => +n)
+//         const points = x > y ? 3 : x === y ? 1 : 0
+//         return acc + points
+//     }, 0)
+// }
+// console.log(points(["1:0", "2:0", "3:0", "4:0", "2:1", "3:1", "4:1", "3:2", "4:2", "4:3"]))// 30
+// console.log(points(["1:1", "2:2", "3:3", "4:4", "2:2", "3:3", "4:4", "3:3", "4:4", "4:4"]))// 10
+// console.log(points(["0:1", "0:2", "0:3", "0:4", "1:2", "1:3", "1:4", "2:3", "2:4", "3:4"]))// 0
+// console.log(points(["1:0", "2:0", "3:0", "4:0", "2:1", "1:3", "1:4", "2:3", "2:4", "3:4"]))// 15
+// console.log(points(["1:0", "2:0", "3:0", "4:4", "2:2", "3:3", "1:4", "2:3", "2:4", "3:4"]))// 12
+
+
+// function dirReduc(directions) {
+//     const opposites = {
+//         "NORTH": "SOUTH",
+//         "SOUTH": "NORTH",
+//         "EAST": "WEST",
+//         "WEST": "EAST"
+//     };
+//
+//     let stack = [];
+//     for (let dir of directions) {
+//         if (stack.length > 0 && stack[stack.length - 1] === opposites[dir]) {
+//             stack.pop();
+//         } else {
+//             stack.push(dir);
+//         }
+//     }
+//     return stack;
+// }
+// console.log(dirReduc(["NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST"]))//["WEST"]
+// console.log(dirReduc(["NORTH", "WEST", "SOUTH", "EAST"]))//["NORTH", "WEST", "SOUTH", "EAST"]
+// console.log(dirReduc(["NORTH", "SOUTH", "EAST", "WEST", "EAST", "WEST"]))//[]
+
+
+// function rgb(r, g, b) {
+//     return ([r, g, b].map(col =>{
+//         if(col < 0){
+//             col = 0
+//         } else if(col > 255){
+//             col = 255
+//         }
+//         const hex = col.toString(16).toUpperCase()
+//         return hex.length === 1 ? "0" + hex : hex;
+//     }).join(''))
+// }
+// console.log(rgb(0,   0,   0))//'000000'
+// console.log(rgb(0,   0, -20))//'000000'
+// console.log(rgb(300, 255, 255))//'FFFFFF'
+// console.log(rgb(173, 255,  47))//ADFF2F'
+
+
+// function formatDuration(seconds) {
+//     if (seconds === 0) return "now";
+//
+//     const units = [
+//         { label: "year", value: 365 * 24 * 60 * 60 },
+//         { label: "day", value: 24 * 60 * 60 },
+//         { label: "hour", value: 60 * 60 },
+//         { label: "minute", value: 60 },
+//         { label: "second", value: 1 }
+//     ];
+//
+//     let result = [];
+//
+//     for (const unit of units) {
+//         const unitValue = Math.floor(seconds / unit.value);
+//         if (unitValue > 0) {
+//             result.push(unitValue + ' ' + (unitValue > 1 ? unit.label + 's' : unit.label));
+//             seconds -= unitValue * unit.value; // Subtract the processed seconds
+//         }
+//     }
+//
+//     const len = result.length;
+//     if (len === 1) {
+//         return result[0];
+//     } else if (len === 2) {
+//         return result.join(' and ');
+//     } else {
+//         return result.slice(0, len - 1).join(', ') + ' and ' + result[len - 1];
+//     }
+// }
+// console.log(formatDuration(62));     // "1 minute and 2 seconds"
+// console.log(formatDuration(3662));   // "1 hour, 1 minute and 2 seconds"
+// console.log(formatDuration(31556952)); // "1 year"
+// console.log(formatDuration(1))// "1 second"
+// console.log(formatDuration(62))// "1 minute and 2 seconds"
+// console.log(formatDuration(120))// "2 minutes"
+// console.log(formatDuration(3600))// "1 hour"
+// console.log(formatDuration(3662))// "1 hour, 1 minute and 2 seconds"
+// console.log(formatDuration(2380891))// '27 days, 13 hours, 21 minutes and 31 seconds'
+// console.log(formatDuration(3723000))// '43 days, 2 hours and 10 minutes'
