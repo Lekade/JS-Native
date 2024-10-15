@@ -1393,3 +1393,101 @@
 // console.log(formatDuration(3662))// "1 hour, 1 minute and 2 seconds"
 // console.log(formatDuration(2380891))// '27 days, 13 hours, 21 minutes and 31 seconds'
 // console.log(formatDuration(3723000))// '43 days, 2 hours and 10 minutes'
+
+
+// function getGrade(s1, s2, s3) {
+//     const medium = (s1 + s2 + s3 )/ 3
+//     if(90 <= medium && medium <= 100) return 'A'
+//     if(80 <= medium && medium < 90) return 'B'
+//     if(70 <= medium && medium < 80) return 'C'
+//     if(60 <= medium && medium < 70) return 'D'
+//     if(0 <= medium && medium < 60) return 'F'
+// }
+// console.log(getGrade(95, 90, 93))// 'A'
+// console.log(getGrade(100, 85, 96))// 'A'
+// console.log(getGrade(92, 93, 94))// 'A'
+// console.log(getGrade(70, 70, 100))// 'B'
+// console.log(getGrade(82, 85, 87))// 'B'
+// console.log(getGrade(84, 79, 85))// 'B'
+// console.log(getGrade(89, 89, 90))// 'B'
+// console.log(getGrade(70, 70, 70))// 'C'
+// console.log(getGrade(75, 70, 79))// 'C'
+// console.log(getGrade(60, 82, 76))// 'C'
+// console.log(getGrade(65, 70, 59))// 'D'
+// console.log(getGrade(66, 62, 68))// 'D'
+// console.log(getGrade(58, 62, 70))// 'D'
+// console.log(getGrade(44, 55, 52))// 'F'
+// console.log(getGrade(48, 55, 52))// 'F'
+// console.log(getGrade(58, 59, 60))// 'F'
+
+
+// function sumArray(array) {
+//     if(!array || array.length < 3) return 0
+//     const max = Math.max(...array)
+//     const min = Math.min(...array)
+//     const sum = array.reduce((acc, curr) => acc + curr)
+//     return sum - max - min
+// }
+// console.log(sumArray(null))//                     , 0 );
+// console.log(sumArray([ ]))//                      , 0 );
+// console.log(sumArray([ 3 ]))//                    , 0 );
+// console.log(sumArray([ 3, 5 ]))//                 , 0 );
+// console.log(sumArray([ 6, 2, 1, 8, 10 ]))//       , 16 );
+// console.log(sumArray([ 0, 1, 6, 10, 10 ]))//      , 17 );
+// console.log(sumArray([ -6, -20, -1, -10, -12 ]))//, -28 );
+// console.log(sumArray([ -6, 20, -1, 10, -12 ]))//  , 3 );
+
+
+// function solution(string) {
+//     if (!string) {
+//         return string
+//     }
+//     return string.split('').map(l => l.charCodeAt() >= 65 && l.charCodeAt() <= 90 ? ` ${l}` : l).join('')
+// }
+// console.log(solution(""))// ""
+// console.log(solution("camelCasing"))// "camel Casing"
+// console.log(solution("camelCasingTest"))// "camel Casing Test"
+
+
+// function findNb(m) {
+//     let n = 0
+//     let sum = 0
+//     while (sum < m){
+//         n++
+//         sum += Math.pow(n, 3)
+//     }
+//     return sum === m ? n : -1
+// }
+// console.log(findNb(4183059834009))// 2022
+// console.log(findNb(24723578342962))// -1
+// console.log(findNb(135440716410000))// 4824
+// console.log(findNb(40539911473216))// 3568
+// //1^3 + 2^3 + 3^3, ... + n^3 = m
+
+
+// function longestConsec(strarr, k) {
+//     if(k <= 0 || !strarr.length || strarr.length < k) return ''
+//     let arr = []
+//     let el = ''
+//     for (let i = 0; i < strarr.length; i++){
+//         for(let q = 0; q < k; q++){
+//             if(strarr[i + q]){
+//                 el += strarr[i + q]
+//             }
+//         }
+//         arr.push(el)
+//         el = ''
+//     }
+//     return arr.reduce((acc, curr)=> {
+//        return  curr.length > acc.length ? curr : acc
+//     })
+// }
+// console.log(longestConsec(["zone", "abigail", "theta", "form", "libe", "zas"], 2))// "abigailtheta"
+// console.log(longestConsec(["ejjjjmmtthh", "zxxuueeg", "aanlljrrrxx", "dqqqaaabbb", "oocccffuucccjjjkkkjyyyeehh"], 1))// "oocccffuucccjjjkkkjyyyeehh"
+// console.log(longestConsec([], 3))// "")
+// console.log(longestConsec(["itvayloxrp","wkppqsztdkmvcuwvereiupccauycnjutlv","vweqilsfytihvrzlaodfixoyxvyuyvgpck"], 2))// "wkppqsztdkmvcuwvereiupccauycnjutlvvweqilsfytihvrzlaodfixoyxvyuyvgpck"
+// console.log(longestConsec(["wlwsasphmxx","owiaxujylentrklctozmymu","wpgozvxxiu"], 2))// "wlwsasphmxxowiaxujylentrklctozmymu"
+// console.log(longestConsec(["zone", "abigail", "theta", "form", "libe", "zas"], -2))// "")
+// console.log(longestConsec(["it","wkppv","ixoyx", "3452", "zzzzzzzzzzzz"], 3))// "ixoyx3452zzzzzzzzzzzz"
+// console.log(longestConsec(["it","wkppv","ixoyx", "3452", "zzzzzzzzzzzz"], 15))// ""
+// console.log(longestConsec(["it","wkppv","ixoyx", "3452", "zzzzzzzzzzzz"], 0))// ""
