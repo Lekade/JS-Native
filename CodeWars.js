@@ -1491,3 +1491,104 @@
 // console.log(longestConsec(["it","wkppv","ixoyx", "3452", "zzzzzzzzzzzz"], 3))// "ixoyx3452zzzzzzzzzzzz"
 // console.log(longestConsec(["it","wkppv","ixoyx", "3452", "zzzzzzzzzzzz"], 15))// ""
 // console.log(longestConsec(["it","wkppv","ixoyx", "3452", "zzzzzzzzzzzz"], 0))// ""
+
+
+// function stray(numbers) {
+//     const objCount = numbers.reduce((acc, curr) => {
+//         if(numbers[0] === curr){acc.one += 1}else{acc.two += 1}
+//         return acc
+//     }, {'one': 0, 'two': 0})
+//     return objCount.one < objCount.two ? numbers[0] : numbers.find(el => el !== numbers[0])
+// }
+// console.log(stray([1, 1, 2]))// 2
+// console.log(stray([1, 2, 1]))// 2
+// console.log(stray([2, 1, 1]))// 2
+
+
+// function dontGiveMeFive(start, end){
+//     let count = 0
+//     for(let i = start; i <= end; i++){
+//         if(!i.toString().includes('5')){
+//             count++
+//         }
+//     }
+//     return count
+// }
+// console.log(dontGiveMeFive(1, 9))// 8
+// console.log(dontGiveMeFive(4, 17))// 12
+// //[1] 2 3 4 (X) 6 7 8 [9]
+// //[4] (X) 6 7 8 9 10 11 12 13 14 15 16 [17]
+
+
+// function getDivisorsCnt(n) {
+//     let count = 0;
+//     for (let i = 1; i <= Math.sqrt(n); i++) {
+//         if (n % i === 0) {
+//             count++;
+//             if (i !== n / i) {
+//                 count++;
+//             }
+//         }
+//     }
+//     return count;
+// }
+// console.log(getDivisorsCnt(1))//  1
+// console.log(getDivisorsCnt(10))// 4
+// console.log(getDivisorsCnt(11))// 2
+// console.log(getDivisorsCnt(54))// 8
+
+
+// function calculateYears(principal, interest, tax, desired) {
+//     let countYears = 0
+//
+//     while (principal < desired) {
+//
+//         let percentages = principal * interest
+//         let amountTax = percentages * tax
+//         principal += percentages - amountTax
+//         countYears++
+//     }
+//     return countYears
+// }
+// console.log(calculateYears(1000, 0.05, 0.18, 1100))// 3
+// console.log(calculateYears(1000,0.01625,0.18,1200))// 14
+// console.log(calculateYears(1000,0.05,0.18,1000))// 0
+
+
+// function validBraces(str) {
+//     const stack = [];
+//     const bracesMap = {
+//         ')': '(',
+//         ']': '[',
+//         '}': '{'
+//     };
+//
+//     for (const char of str) {
+//         if (char === '(' || char === '[' || char === '{') {
+//             stack.push(char);
+//         }
+//         else {
+//             if (stack.length === 0 || stack.pop() !== bracesMap[char]) {
+//                 return false;
+//             }
+//         }
+//     }
+//     return stack.length === 0;
+// }
+//
+// console.log(validBraces("()))"))// false
+// console.log(validBraces("()"))// true
+// console.log(validBraces("[]"))// true
+// console.log(validBraces("{}"))// true
+// console.log(validBraces("(){}[]"))// true
+// console.log(validBraces("([{}])"))// true
+// console.log(validBraces("(}"))// false
+// console.log(validBraces("[(])"))// false
+// console.log(validBraces("({})[({})]"))// true
+// console.log(validBraces("(})"))// false
+// console.log(validBraces("(({{[[]]}}))"))// true
+// console.log(validBraces("{}({})[]"))// true
+// console.log(validBraces(")(}{]["))// false
+// console.log(validBraces("())({}}{()][]["))// false
+// console.log(validBraces("(((({{"))// false
+// console.log(validBraces("}}]]))}])"))// false
