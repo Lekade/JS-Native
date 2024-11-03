@@ -1592,3 +1592,136 @@
 // console.log(validBraces("())({}}{()][]["))// false
 // console.log(validBraces("(((({{"))// false
 // console.log(validBraces("}}]]))}])"))// false
+
+
+// function doubleChar(str) {
+//     return  str.split('').map(char  =>  `${char}${char}`).join('')
+// }
+// console.log(doubleChar("abcd"))// "aabbccdd")
+// console.log(doubleChar("Adidas"))// "AAddiiddaass")
+// console.log(doubleChar("1337"))// "11333377")
+// console.log(doubleChar("illuminati"))// "iilllluummiinnaattii")
+// console.log(doubleChar("123456"))// "112233445566")
+// console.log(doubleChar("%^&*("))// "%%^^&&**((")
+
+
+// function queueTime(customers, n) {
+//     if(!customers.length){return 0}
+//     const result = customers.reduce((acc, curr)=>{
+//         if(acc.length < n){acc.push(curr)}
+//         else {
+//                 let min = Math.min(...acc)
+//                 let index = acc.indexOf(min)
+//                 acc[index] += curr
+//         }
+//         return acc
+//     }, [])
+//     return Math.max(...result)
+// }
+// console.log(queueTime([], 1))// 0);
+// console.log(queueTime([1,2,3,4], 1))// 10);
+// console.log(queueTime([2,2,3,3,4,4], 2))// 9);
+// console.log(queueTime([1,2,3,4,5], 100))// 5);
+// console.log(queueTime([5,3,4],    1))// 12);
+// console.log(queueTime([10,2,3,3], 2))// 10);
+// console.log(queueTime([2,3,10,2], 2))// 12);
+
+
+// function firstNonConsecutive (arr) {
+//     for(let i = 0; i < arr.length; i++){
+//         if(i > 0 && (arr[i] - 1) !== arr[i - 1]){
+//             return arr[i]
+//         }
+//     }
+//     return null
+// }
+// console.log(firstNonConsecutive([1,2,3,4,6,7,8]))//6
+// console.log(firstNonConsecutive([1,2,3,4]))//null
+// console.log(firstNonConsecutive([-4,-2,-1,0,2,3,4,5]))
+
+
+// function nextBigger(n) {
+//     const digits = n.toString().split('');
+//
+//     // Шаг 1: Найти точку перестановки
+//     let i = digits.length - 2;
+//     while (i >= 0 && digits[i] >= digits[i + 1]) {
+//         i--;
+//     }
+//
+//     // Если не нашли, вернуть -1
+//     if (i === -1) return -1;
+//
+//     // Шаг 2: Найти наименьшее большее число справа от точки перестановки
+//     let j = digits.length - 1;
+//     while (digits[j] <= digits[i]) {
+//         j--;
+//     }
+//
+//
+//     // Шаг 3: Поменять местами и отсортировать остаток
+//     [digits[i], digits[j]] = [digits[j], digits[i]];
+//     const result = [...digits.slice(0, i + 1), ...digits.slice(i + 1).sort()].join('');
+//
+//     return parseInt(result, 10);
+// }
+// console.log(nextBigger(12))// 21
+// console.log(nextBigger(513))// 531
+// console.log(nextBigger(2017))// 2071
+// console.log(nextBigger(414))// 441
+// console.log(nextBigger(144))// 414
+// console.log(nextBigger(90))// -1
+// console.log(nextBigger(16612409990))// 16612490099
+
+// function getPINs(observed) {
+//     const key = {
+//         '0': ['0', '8'],
+//         '1': ['1', '2', '4'],
+//         '2': ['1', '2', '3', '5'],
+//         '3': ['2', '3', '6'],
+//         '4': ['1', '4', '5', '7'],
+//         '5': ['2', '4', '5', '6', '8'],
+//         '6': ['3', '5', '6', '9'],
+//         '7': ['4', '7', '8'],
+//         '8': ['5', '7', '8', '9', '0'],
+//         '9': ['6', '8', '9']
+//     }
+//     const arr = observed.split('').map(el => key[el])
+//
+//     const combine = (arr) => {
+//         if (arr.length === 0) return [''];
+//         const first = arr[0];
+//         console.log(first)
+//
+//         const rest = combine(arr.slice(1));
+//         const combinations = [];
+//         for (let f of first) {
+//             for (let r of rest) {
+//                 combinations.push(f + r);
+//             }
+//         }
+//         return combinations;
+//     };
+//
+//     return combine(arr);
+// }
+// console.log(getPINs("1357"));
+// // Возможные PIN-коды для "1357" (будет довольно длинный список)
+// console.log(getPINs("11"));
+//['11', '12', '14', '21', '22', '24', '41', '42', '44']
+
+// console.log(getPINs("5"));
+// // ["2", "4", "5", "6", "8"]
+//
+// console.log(getPINs("0"));
+// // ["0", "8"]
+
+// ┌───┬───┬───┐
+// │ 1 │ 2 │ 3 │
+// ├───┼───┼───┤
+// │ 4 │ 5 │ 6 │
+// ├───┼───┼───┤
+// │ 7 │ 8 │ 9 │
+// └───┼───┼───┘
+//     │ 0 │
+//     └───┘
